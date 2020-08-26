@@ -34,7 +34,7 @@
                                 class="fa fa-address-card fa-lg"></span> Contact</a></li>
                 </ul>
                 <span class="navbar-text">
-                    <a href="" data-toggle="modal" data-target="#loginModal">
+                    <a data-toggle="modal" data-target="#loginModal">
                         <span class="fa fa-sign-in"></span>Login
                     </a>
                 </span>
@@ -80,6 +80,84 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="reserveTable" role="dialog">
+        <div class="modal-dialog modal-lg" role="content">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Reserve a Table</h4>
+                    <button class="close" type="button" data-dismiss="modal">
+                        &times;
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group row">
+                            <label for="noOfGuests" class="col-md-2 col-form-label">Number of Guests</label>
+                            <div class="col-md-10">
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input" id="noOfGuests1" value="1"
+                                        name="noOfGuests">
+                                    <label for="1person" class="form-check-label">1</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input" id="noOfGuests2" value="2"
+                                        name="noOfGuests">
+                                    <label for="2person" class="form-check-label">2</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input" id="noOfGuests3" value="3"
+                                        name="noOfGuests">
+                                    <label for="3person" class="form-check-label">3</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input" id="noOfGuests4" value="4"
+                                        name="noOfGuests">
+                                    <label for="4person" class="form-check-label">4</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input" id="noOfGuests5" value="5"
+                                        name="noOfGuests">
+                                    <label for="5person" class="form-check-label">5</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input" id="noOfGuests6" value="6"
+                                        name="noOfGuests">
+                                    <label for="6person" class="form-check-label">6</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-2 col-form-label">Section</label>
+                            <div class="col-md-10">
+                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                    <label class="btn btn-success active">
+                                        <input type="radio" name="section" id="nonSmoking" checked>Non Smoking
+                                    </label>
+                                    <label class="btn btn-danger">
+                                        <input type="radio" name="section" id="Smoking">Smoking
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="dateAndTime" class="col-md-2 col-form-label">Date and Time</label>
+                            <div class="col-md-4"><input type="date" name="date" id="date" class="form-control"
+                                    placeholder="Date"></div>
+                            <div class="col-md-4"><input type="time" name="time" id="time" class="form-control"
+                                    placeholder="Time"></div>
+                        </div>
+                        <div class="form-row row">
+                            <div class="offset-md-2 col-md-10">
+                                <button class="btn btn-secondary btn-sm ml-auto" type="button"
+                                    data-dismiss="modal">Cancel</button>
+                                <button class="btn btn-primary btn-sm ml-1" type="submit">Reserve</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     <header class="jumbotron">
         <div class="container">
             <div class="row row-header">
@@ -92,9 +170,8 @@
                     <img src="img/logo.png" alt="" class="img-fluid">
                 </div>
                 <div class="col-12 col-sm align-self-center">
-                    <a class="btn btn-warning btn-block nav-link" href="#ReserveATable" role="button"
-                        data-toggle="tooltip" data-html="true" title="Or Call us at <br><strong>+852 12345678</strong>"
-                        data-placement="bottom">Reserve Table</a>
+                    <a class="btn btn-warning btn-block nav-link" role="button" data-toggle="modal" data-html="true"
+                        data-target="#reserveTable">Reserve Table</a>
                 </div>
             </div>
         </div>
@@ -145,6 +222,14 @@
                     <a href="#mycarousel" class="carousel-control-next" role="button" data-slide="next">
                         <span class="carousel-control-next-icon"></span>
                     </a>
+                    <div class="btn-group" id="carouselButton">
+                        <button class="btn btn-danger btn-sm" id="carousel-pause">
+                            <span class="fa fa-pause"></span>
+                        </button>
+                        <button class="btn btn-danger btn-sm" id="carousel-play">
+                            <span class="fa fa-play"></span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -204,7 +289,7 @@
                 </div>
             </div>
         </div>
-        <a id="ReserveATable"></a>
+        <!-- <a id="ReserveATable"></a>
         <div class="row row-content justify-content-center">
             <div class="col-12 col-sm-8">
                 <div class="card">
@@ -262,7 +347,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
     <footer class="footer">
         <div class="container">
@@ -315,9 +400,15 @@
     <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script>
-        $(document).ready(function () {
-            $('[data-toggle="tooltip"]').tooltip();
-        });
+        $(document).ready(function() {
+            $('#mycarousel').carousel({ interval: 2000 });
+            $('#carousel-pause').click(function() {
+                $('#mycarousel').carousel('pause');
+            });
+            $('#carousel-play').click(function() {
+                $('#mycarousel').carousel('cycle');
+            });
+        })
     </script>
 </body>
 
