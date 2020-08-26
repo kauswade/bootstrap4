@@ -12,7 +12,7 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="node_modules/bootstrap-social/bootstrap-social.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/styles.css">
     <title>Ristorante Con Fusion</title>
 </head>
 
@@ -34,7 +34,7 @@
                                 class="fa fa-address-card fa-lg"></span> Contact</a></li>
                 </ul>
                 <span class="navbar-text">
-                    <a data-toggle="modal" data-target="#loginModal">
+                    <a id="loginButton">
                         <span class="fa fa-sign-in"></span>Login
                     </a>
                 </span>
@@ -170,8 +170,7 @@
                     <img src="img/logo.png" alt="" class="img-fluid">
                 </div>
                 <div class="col-12 col-sm align-self-center">
-                    <a class="btn btn-warning btn-block nav-link" role="button" data-toggle="modal" data-html="true"
-                        data-target="#reserveTable">Reserve Table</a>
+                    <a class="btn btn-warning btn-block nav-link" role="button" id="reserveTableButton">Reserve Table</a>
                 </div>
             </div>
         </div>
@@ -409,6 +408,16 @@
                     $('#carouselButton').children('span').addClass('fa-pause');
                 }
             });
+        })
+    </script>
+    <script>
+        $('#loginButton').click(function () {
+            $('#loginModal').modal()
+        })
+    </script>
+    <script>
+        $('#reserveTableButton').click(function () {
+            $('#reserveTable').modal()
         })
     </script>
 </body>
